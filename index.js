@@ -1,6 +1,8 @@
 var haveDoc = typeof document != 'undefined';
 var haveCustomEvent = typeof CustomEvent != 'undefined';
 var enabled = haveDoc;
+var eventNS = Math.random().toString(36).slice(2);
+var eventCounter = 0;
 
 /**
   # indirect
@@ -24,18 +26,38 @@ var enabled = haveDoc;
 
 **/
 
-var indirect = module.exports = function(cont) {
+var indirect = module.exports = function(cont, scope) {
+  var eventName;
+
+  function handleEvent(evt) {
+    var args = evt && evt.detail;
+    if (Array.isArray(args)) {
+      cont.apply(scope, args);
+    }
+
+    // TODO: deregister event listener at the appropriate time otherwise memory leak
+  }
+
   if (! enabled) {
     return cont;
   }
 
+  // initialise the new eventName
+  eventName = eventNS + ':' + (eventCounter++);
+  document.addEventListener(eventName, handleEvent);
+
   return function() {
     var args = [].slice.call(arguments);
+    var evt;
 
-    if (! haveDoc) {
-      return setTimeout(function() {
-        cont.apply(null, args);
-      }, 0);
+    if (haveCustomEvent) {
+      evt = new CustomEvent(eventName, {
+        detail: args
+      });
+    }
+
+    if (evt) {
+      document.dispatchEvent(evt);
     }
   };
 };
