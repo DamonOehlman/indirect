@@ -1,0 +1,28 @@
+{
+  "name": "indirect",
+  "version": "0.0.0",
+  "description": "Use custom events to work around Native -> WebView JS execution limitations",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/all.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DamonOehlman/indirect.git"
+  },
+  "keywords": [
+    "native",
+    "binding",
+    "invocation",
+    "custom-event"
+  ],
+  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DamonOehlman/indirect/issues"
+  },
+  "homepage": "https://github.com/DamonOehlman/indirect",
+  "devDependencies": {
+    "tape": "^2"
+  }
+}
