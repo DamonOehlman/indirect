@@ -1,6 +1,6 @@
 {
   "name": "indirect",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Use custom events to work around Native -> WebView JS execution limitations",
   "main": "index.js",
   "scripts": {
