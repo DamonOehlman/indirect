@@ -7,7 +7,10 @@ execution environment.
 
 [![NPM](https://nodei.co/npm/indirect.png)](https://nodei.co/npm/indirect/)
 
-[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/DamonOehlman/indirect.svg?branch=master)](https://travis-ci.org/DamonOehlman/indirect) 
+
+[![browser support](https://ci.testling.com/DamonOehlman/indirect.png)](https://ci.testling.com/DamonOehlman/indirect)
+
+[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/badges/stability-badges) 
 
 ## How it works
 
